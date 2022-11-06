@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import Login from "./components/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Register from "./components/Register/Register";
 
 const App = () => {
     return (
@@ -26,7 +25,6 @@ const App = () => {
                     <Route path="/contact" element={"contact"}></Route>
                     <Route path="*" element={"not found"}></Route>
                     <Route path="/login" element={<Login />}></Route>
-                    <Route path="/register" element={<Register />}></Route>
                 </Routes>
             </div>
         </BrowserRouter>

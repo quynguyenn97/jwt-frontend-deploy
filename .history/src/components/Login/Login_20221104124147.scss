@@ -1,0 +1,26 @@
+.login-container {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding-top: 20px;
+    .content-left {
+        margin-top: 50px;
+        .brand {
+            text-transform: uppercase;
+            font-size: 30px;
+            color: #1877f2;
+        }
+        .detail {
+            font-size: 20px;
+        }
+    }
+    .content-right {
+        border-radius: 10px;
+        background-color: #fff;
+        .brand {
+            text-transform: uppercase;
+            font-size: 20px;
+            color: #1877f2;
+            font-weight: 600;
+        }
+    }
+}
