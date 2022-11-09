@@ -15,24 +15,22 @@ import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
     return (
-        <>
-            <BrowserRouter>
-                <div className="app-container">
-                    {/* <Nav /> */}
-                    <Routes>
-                        <Route path="/" element={"home"}>
-                            home
-                        </Route>
+        <BrowserRouter>
+            <div className="app-container">
+                {/* <Nav /> */}
+                <Routes>
+                    <Route path="/" element={"home"}>
+                        home
+                    </Route>
 
-                        <Route path="/news" element={"news"}></Route>
-                        <Route path="/about" element={"about"}></Route>
-                        <Route path="/contact" element={"contact"}></Route>
-                        <Route path="*" element={"not found"}></Route>
-                        <Route path="/login" element={<Login />}></Route>
-                        <Route path="/register" element={<Register />}></Route>
-                    </Routes>
-                </div>
-            </BrowserRouter>
+                    <Route path="/news" element={"news"}></Route>
+                    <Route path="/about" element={"about"}></Route>
+                    <Route path="/contact" element={"contact"}></Route>
+                    <Route path="*" element={"not found"}></Route>
+                    <Route path="/login" element={<Login />}></Route>
+                    <Route path="/register" element={<Register />}></Route>
+                </Routes>
+            </div>
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
@@ -45,7 +43,7 @@ const App = () => {
                 pauseOnHover
                 theme="light"
             />
-        </>
+        </BrowserRouter>
     );
 };
 

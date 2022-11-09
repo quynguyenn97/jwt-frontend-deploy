@@ -10,9 +10,6 @@ import {
 import Login from "./components/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Register from "./components/Register/Register";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 const App = () => {
     return (
         <>
@@ -33,18 +30,6 @@ const App = () => {
                     </Routes>
                 </div>
             </BrowserRouter>
-            <ToastContainer
-                position="top-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
         </>
     );
 };

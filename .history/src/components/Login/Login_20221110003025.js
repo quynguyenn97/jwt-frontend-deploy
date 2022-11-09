@@ -16,7 +16,7 @@ const Login = (props) => {
     const handleCreateNewAccount = () => {
         navigate("/register");
     };
-    const handleLogin = async () => {
+    const handleLogin = () => {
         setObjValidInput(defaultObjValidInput);
         if (!valueLogin) {
             setObjValidInput({
@@ -34,7 +34,7 @@ const Login = (props) => {
             toast.error("Pleaee enter your password");
             return;
         }
-        await loginUser(valueLogin, password);
+        alert("me");
     };
     return (
         <div className="login-container ">

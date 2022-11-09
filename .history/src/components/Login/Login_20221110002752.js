@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loginUser } from "../../services/userService";
 
 const Login = (props) => {
     const [valueLogin, setValueLogin] = useState("");
@@ -16,7 +15,7 @@ const Login = (props) => {
     const handleCreateNewAccount = () => {
         navigate("/register");
     };
-    const handleLogin = async () => {
+    const handleLogin = () => {
         setObjValidInput(defaultObjValidInput);
         if (!valueLogin) {
             setObjValidInput({
@@ -34,7 +33,7 @@ const Login = (props) => {
             toast.error("Pleaee enter your password");
             return;
         }
-        await loginUser(valueLogin, password);
+        alert("me");
     };
     return (
         <div className="login-container ">

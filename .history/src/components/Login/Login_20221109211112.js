@@ -2,39 +2,22 @@ import React, { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { loginUser } from "../../services/userService";
 
 const Login = (props) => {
     const [valueLogin, setValueLogin] = useState("");
     const [password, setPassword] = useState("");
-    const defaultObjValidInput = {
-        isValidValueLogin: true,
-        isValidPassword: true,
-    };
-    const [objValidInput, setObjValidInput] = useState(defaultObjValidInput);
     const navigate = useNavigate();
     const handleCreateNewAccount = () => {
         navigate("/register");
     };
-    const handleLogin = async () => {
-        setObjValidInput(defaultObjValidInput);
+    const handleLogin = () => {
         if (!valueLogin) {
-            setObjValidInput({
-                ...defaultObjValidInput,
-                isValidValueLogin: false,
-            });
             toast.error("Pleaee enter your email address or phone number");
-            return;
         }
         if (!password) {
-            setObjValidInput({
-                ...defaultObjValidInput,
-                isValidPassword: false,
-            });
             toast.error("Pleaee enter your password");
-            return;
         }
-        await loginUser(valueLogin, password);
+        alert("me");
     };
     return (
         <div className="login-container ">
@@ -52,11 +35,7 @@ const Login = (props) => {
 
                         <input
                             type="text"
-                            className={
-                                objValidInput.valueLogin === false
-                                    ? "form-control is-invalid"
-                                    : "form-control"
-                            }
+                            className="form-control"
                             placeholder="Email address or phone number"
                             value={valueLogin}
                             onChange={(event) =>
@@ -65,11 +44,7 @@ const Login = (props) => {
                         />
                         <input
                             type="text"
-                            className={
-                                objValidInput.password === false
-                                    ? "form-control is-invalid"
-                                    : "form-control"
-                            }
+                            className="form-control"
                             placeholder="Password"
                             value={password}
                             onChange={(event) =>

@@ -81,7 +81,6 @@ const Register = (props) => {
             } else {
                 toast.error(serverData.EM);
             }
-            navigate("/login");
         }
     };
     return (

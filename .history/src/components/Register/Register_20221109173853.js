@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Register.scss";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { toast } from "react-toastify";
-import { registerNewUser } from "../../services/userService";
 
 const Register = (props) => {
     const [email, setEmail] = useState("");
@@ -22,9 +22,9 @@ const Register = (props) => {
         navigate("/login");
     };
     useEffect(() => {
-        // axios.get("http://localhost:8080/api/v1/test-api").then((data) => {
-        //     console.log(">>>check data axios", data);
-        // });
+        axios.post("http://localhost:8080/api/v1/register").then((data) => {
+            console.log(">>>check data axios", data);
+        });
     }, []);
 
     const isValidInputs = () => {
@@ -34,7 +34,7 @@ const Register = (props) => {
             setObjCheckInput({ ...defaultValidInput, isValidEmail: false });
             return false;
         }
-        let regx = /\S+@\S+\.\S+/;
+        let regx = /\S+@\.\S+/;
         if (!regx.test(email)) {
             toast.error("Please enter a valid email address");
             setObjCheckInput({ ...defaultValidInput, isValidEmail: false });
@@ -66,23 +66,10 @@ const Register = (props) => {
         return true;
     };
 
-    const handleRegister = async () => {
+    const handleRegister = () => {
         let check = isValidInputs();
-        if (check === true) {
-            let response = await registerNewUser(
-                email,
-                phone,
-                username,
-                password
-            );
-            let serverData = response.data;
-            if (+serverData.EC === 0) {
-                toast.success(serverData.EM);
-            } else {
-                toast.error(serverData.EM);
-            }
-            navigate("/login");
-        }
+        let userData = { email, phone, username, password };
+        console.log(">>check userData", userData);
     };
     return (
         <div className="register-container ">

@@ -22,9 +22,9 @@ const Register = (props) => {
         navigate("/login");
     };
     useEffect(() => {
-        // axios.get("http://localhost:8080/api/v1/test-api").then((data) => {
-        //     console.log(">>>check data axios", data);
-        // });
+        axios.get("http://localhost:8080/api/v1/test-api").then((data) => {
+            console.log(">>>check data axios", data);
+        });
     }, []);
 
     const isValidInputs = () => {
@@ -81,7 +81,6 @@ const Register = (props) => {
             } else {
                 toast.error(serverData.EM);
             }
-            navigate("/login");
         }
     };
     return (
