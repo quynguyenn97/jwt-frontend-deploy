@@ -6,6 +6,7 @@ const Nav = (props) => {
     const [isShow, setIsShow] = useState(true);
     let location = useLocation();
     useEffect(() => {
+        let session = sessionStorage.getItem("account");
         if (location.pathname === "/login") {
             setIsShow(false);
         }

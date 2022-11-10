@@ -26,7 +26,9 @@ const App = () => {
         <>
             <BrowserRouter>
                 <div className="app-header">
-                    <Nav />
+                    {account &&
+                        !_.isEmpty(account) &&
+                        account.isAuthenticated && <Nav />}
                 </div>
                 <div className="app-container">
                     <AppRoutes />

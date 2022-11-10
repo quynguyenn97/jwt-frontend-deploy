@@ -58,7 +58,7 @@ const Login = (props) => {
     };
     useEffect(() => {
         let session = sessionStorage.getItem("account");
-        if (session) {
+        if (!session) {
             navigate("/");
             window.location.reload();
         }

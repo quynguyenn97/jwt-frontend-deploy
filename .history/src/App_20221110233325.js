@@ -15,18 +15,13 @@ import _ from "lodash";
 import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
-    const [account, setAccount] = useState({});
-    useEffect(() => {
-        let session = sessionStorage.getItem("account");
-        if (session) {
-            setAccount(JSON.parse(session));
-        }
-    }, []);
     return (
         <>
             <BrowserRouter>
                 <div className="app-header">
-                    <Nav />
+                    {account &&
+                        !_.isEmpty(account) &&
+                        account.isAuthenticated && <Nav />}
                 </div>
                 <div className="app-container">
                     <AppRoutes />

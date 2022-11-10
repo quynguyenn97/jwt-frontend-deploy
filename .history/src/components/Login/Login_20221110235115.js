@@ -56,11 +56,11 @@ const Login = (props) => {
             handleLogin();
         }
     };
+    const navigate = useNavigate();
     useEffect(() => {
         let session = sessionStorage.getItem("account");
-        if (session) {
-            navigate("/");
-            window.location.reload();
+        if (!session) {
+            navigate("/login");
         }
     }, []);
     return (

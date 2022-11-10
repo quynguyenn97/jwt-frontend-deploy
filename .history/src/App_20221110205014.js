@@ -7,9 +7,12 @@ import {
     Link,
     BrowserRouter,
 } from "react-router-dom";
+import Login from "./components/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Register from "./components/Register/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Users from "./components/ManageUsers/Users";
 import { useEffect, useState } from "react";
 import _ from "lodash";
 import AppRoutes from "./routes/AppRoutes";
@@ -26,7 +29,9 @@ const App = () => {
         <>
             <BrowserRouter>
                 <div className="app-header">
-                    <Nav />
+                    {account &&
+                        !_.isEmpty(account) &&
+                        account.isAuthenticated && <Nav />}
                 </div>
                 <div className="app-container">
                     <AppRoutes />

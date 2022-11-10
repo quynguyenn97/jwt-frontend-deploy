@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Login.scss";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -43,7 +43,6 @@ const Login = (props) => {
             };
             sessionStorage.setItem("account", JSON.stringify(data));
             navigate("/users");
-            window.location.reload();
         }
         if (response && response.data && +response.data.EC !== 0) {
             //error
@@ -56,13 +55,6 @@ const Login = (props) => {
             handleLogin();
         }
     };
-    useEffect(() => {
-        let session = sessionStorage.getItem("account");
-        if (session) {
-            navigate("/");
-            window.location.reload();
-        }
-    }, []);
     return (
         <div className="login-container ">
             <div className="container">

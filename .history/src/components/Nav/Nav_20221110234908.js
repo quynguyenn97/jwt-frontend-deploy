@@ -6,6 +6,7 @@ const Nav = (props) => {
     const [isShow, setIsShow] = useState(true);
     let location = useLocation();
     useEffect(() => {
+        let session = sessionStorage.getItem("account");
         if (location.pathname === "/login") {
             setIsShow(false);
         }
@@ -17,8 +18,8 @@ const Nav = (props) => {
                     <NavLink to="/" exact="true">
                         Home
                     </NavLink>
-                    <NavLink to="/users">users</NavLink>
-                    <NavLink to="/projects">projects</NavLink>
+                    <NavLink to="/news">News</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/about">About</NavLink>
                 </div>
             )}

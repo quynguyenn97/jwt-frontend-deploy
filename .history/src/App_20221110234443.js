@@ -25,9 +25,8 @@ const App = () => {
     return (
         <>
             <BrowserRouter>
-                <div className="app-header">
-                    <Nav />
-                </div>
+                <Nav />
+
                 <div className="app-container">
                     <AppRoutes />
                 </div>

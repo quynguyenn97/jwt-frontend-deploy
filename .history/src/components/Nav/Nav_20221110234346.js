@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.scss";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nav = (props) => {
-    const [isShow, setIsShow] = useState(true);
-    let location = useLocation();
+    const [isShow, setIsShow] = useState(false);
     useEffect(() => {
-        if (location.pathname === "/login") {
-            setIsShow(false);
+        let session = sessionStorage.getItem("account");
+        if (session) {
+            setIsShow(true);
         }
     }, []);
     return (
@@ -17,8 +17,8 @@ const Nav = (props) => {
                     <NavLink to="/" exact="true">
                         Home
                     </NavLink>
-                    <NavLink to="/users">users</NavLink>
-                    <NavLink to="/projects">projects</NavLink>
+                    <NavLink to="/news">News</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/about">About</NavLink>
                 </div>
             )}

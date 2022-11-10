@@ -7,12 +7,14 @@ import {
     Link,
     BrowserRouter,
 } from "react-router-dom";
+import Login from "./components/Login/Login";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Register from "./components/Register/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Users from "./components/ManageUsers/Users";
 import { useEffect, useState } from "react";
 import _ from "lodash";
-import AppRoutes from "./routes/AppRoutes";
 
 const App = () => {
     const [account, setAccount] = useState({});
@@ -25,11 +27,17 @@ const App = () => {
     return (
         <>
             <BrowserRouter>
-                <div className="app-header">
-                    <Nav />
-                </div>
                 <div className="app-container">
-                    <AppRoutes />
+                    <Routes>
+                        {account &&
+                            !_.isEmpty(account) &&
+                            account.isAuthenticated && <Nav />}
+                        <Route path="/" element={"home"}></Route>
+                        <Route path="/login" element={<Login />}></Route>
+                        <Route path="/register" element={<Register />}></Route>
+                        <Route path="/users" element={<Users />}></Route>
+                        <Route path="*" element={"not found"}></Route>
+                    </Routes>
                 </div>
             </BrowserRouter>
             <ToastContainer
