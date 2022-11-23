@@ -44,7 +44,9 @@ const NavHeader = (props) => {
                                     height="30"
                                     className="d-inline-block align-top"
                                 />
-                                <span className="brand-name">&nbsp; React</span>
+                                <span className="brand-name">
+                                    &nbsp; &nbsp; React
+                                </span>
                             </Navbar.Brand>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
