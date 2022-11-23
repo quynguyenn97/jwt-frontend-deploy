@@ -26,7 +26,7 @@ const Users = (props) => {
         let response = await fetchAllUsers(currentPage, currentLimit);
         if (response && +response.EC === 0) {
             setTotalPages(response.DT.totalPages);
-            if (response.DT.totalPages > 0 && response.DT.users.length === 0) {
+            if (response.DT.totalPages > 0 && response.DT.users === 0) {
                 setCurrentPage(+response.DT.totalPages);
                 await fetchAllUsers(+response.DT.totalPages, currentLimit);
             }
